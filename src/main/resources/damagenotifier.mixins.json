@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.dolphin2point0.damagenotifier.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "client": [
+    "ClientPlayerMixin",
+    "accessor.MinecraftClientAccessor",
+    "accessor.WindowAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

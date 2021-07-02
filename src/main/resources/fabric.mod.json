@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "damagenotifier",
+  "version": "${version}",
+  "name": "Damage Notifier",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "LGPL-3.0",
+  "icon": "assets/damagenotifier/icon.png",
+  "environment": "*",
+  "mixins": [
+    "damagenotifier.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.6",
+    "minecraft": "1.17"
+  }
+}
