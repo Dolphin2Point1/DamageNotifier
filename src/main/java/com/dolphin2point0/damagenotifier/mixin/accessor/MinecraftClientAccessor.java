@@ -12,4 +12,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface MinecraftClientAccessor {
     @Accessor("window")
     Window getWindow();
+
+    @Accessor("windowFocused")
+    boolean getWindowFocused();
 }

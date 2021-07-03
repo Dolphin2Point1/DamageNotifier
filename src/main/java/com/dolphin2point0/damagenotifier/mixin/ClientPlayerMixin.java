@@ -19,8 +19,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ClientPlayerMixin {
     @Inject(method = "damage", at = @At("HEAD"))
     public void onDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        MinecraftClient client = MinecraftClient.getInstance();
-        Window window = ((MinecraftClientAccessor) client).getWindow();
-        GLFW.glfwRequestWindowAttention(((WindowAccessor) (Object) window).getHandle());
+        MinecraftClientAccessor clientAccess = (MinecraftClientAccessor) MinecraftClient.getInstance();
+        if(!clientAccess.getWindowFocused()) {
+            Window window = clientAccess.getWindow();
+            GLFW.glfwRequestWindowAttention(((WindowAccessor) (Object) window).getHandle());
+        }
     }
 }
