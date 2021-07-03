@@ -12,11 +12,6 @@
   "mixins": [
     "damagenotifier.mixins.json"
   ],
-  "entrypoints": {
-    "client": [
-      "com.dolphin2point0.damagenotifier.DamageNotifier"
-    ]
-  },
   "depends": {
     "fabricloader": ">=0.11.6",
     "minecraft": "1.17"
