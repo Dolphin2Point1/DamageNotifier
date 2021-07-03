@@ -1,6 +1,5 @@
 package com.dolphin2point0.damagenotifier.mixin;
 
-import com.dolphin2point0.damagenotifier.DamageNotifier;
 import com.dolphin2point0.damagenotifier.mixin.accessor.MinecraftClientAccessor;
 import com.dolphin2point0.damagenotifier.mixin.accessor.WindowAccessor;
 import net.fabricmc.api.EnvType;
@@ -20,9 +19,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ClientPlayerMixin {
     @Inject(method = "damage", at = @At("HEAD"))
     public void onDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if(DamageNotifier.instance.windowState) {
-            Window window = ((MinecraftClientAccessor) MinecraftClient.getInstance()).getWindow();
-            GLFW.glfwRequestWindowAttention(((WindowAccessor) (Object) window).getHandle());
-        }
+        MinecraftClient client = MinecraftClient.getInstance();
+        Window window = ((MinecraftClientAccessor) client).getWindow();
+        GLFW.glfwRequestWindowAttention(((WindowAccessor) (Object) window).getHandle());
     }
 }
